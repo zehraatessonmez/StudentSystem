@@ -1,0 +1,51 @@
+ID : 0803
+Name-Surname : meltem kara
+Lecture1:21
+Lecture2:89
+Lecture3:44
+Lecture4:65
+Lecture5:82
+
+ID : 0804
+Name-Surname : mert soytürk
+Lecture1:34
+Lecture2:74
+Lecture3:56
+Lecture4:88
+Lecture5:93
+
+ID : 0805
+Name-Surname : yaren çakýr
+Lecture1:70
+Lecture2:65
+Lecture3:80
+Lecture4:90
+Lecture5:65
+
+
+ID : 0806
+Name-Surname : nergis konar
+Lecture1:84
+Lecture2:46
+Lecture3:97
+Lecture4:65
+Lecture5:55
+
+ID : 0807
+Name-Surname : hasan kaya
+Lecture1:7
+Lecture2:65
+Lecture3:89
+Lecture4:45
+Lecture5:67
+
+
+ID : 0808
+Name-Surname : zehra ateþsönmez
+Lecture1:95
+Lecture2:85
+Lecture3:70
+Lecture4:65
+Lecture5:78
+
+

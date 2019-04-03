@@ -1,0 +1,286 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class StudentSystem {
+ 	 //creating 3 different string array with values inside of it
+	 static String[] name = {"meltem","mert","yaren","nergis","hasan","zehra"};
+     static String[] surname = {"kara","soytürk","çakýr","konar","kaya","ateþsönmez"};
+	 static String[] id = { "803","804","805","806","807","808"};
+	 
+	 static double[]gpa= {60.2 , 69.0 , 74.0 , 69.4 , 54.6 , 54.6 , 78.6};
+	
+
+	 private static double lecture1;
+	 private static double lecture2;
+	 private static double lecture3;
+	 private static double lecture4;
+	 private static double lecture5;
+	 private static double  Gpa;
+	
+
+	 public void GPA (double x,double y,double z,double t,double k) {
+		 
+		 this.lecture1 = x;
+		 this.lecture2 = y;
+		 this.lecture3 = z;
+		 this.lecture4 = t;
+		 this.lecture5 = k;
+	}
+	//creating constructor for getgpa function 
+	public void setLecture1(double lecture1) {
+		this.lecture1 = lecture1;
+	}
+	public double getLecture1() {
+		return this.lecture1;
+	}
+	
+	public void setLecure2(double lecture2) {
+		this.lecture2 = lecture2;
+	}
+
+	public double getLecture2() {
+		return this.lecture2;
+	}
+	
+	public void setLecture3(double lecture3) {
+		this.lecture3 = lecture3;
+	}
+	
+	public double getLecture3() {
+		return this.lecture3;
+	}
+	
+	public void setLecture4(double lecture4) {
+		this.lecture4 = lecture4;
+	}
+	
+	public double getLecture4() {
+		return this.lecture4;
+	}
+	
+	public void setLecture5(double lecture5) {
+	      this.lecture5 = lecture5;	
+	}
+	public double getLecture5() {
+		return this.lecture5;
+	}
+	
+	public static double getGpa(double x,double y,double z,double t,double k) { 
+		 Gpa = (double)((x + y + z + t + k)/5);
+		 return Gpa;
+	}
+
+	public void setGpa(double gpa) {
+		Gpa = gpa;
+	}
+	
+	
+	public static void main(String[] args) throws IOException {
+     
+	Scanner input = new Scanner(System.in);
+    
+	//crating main menu with switch case
+	System.out.println("1.Student Information");
+	System.out.println("2.All Student Information");
+	System.out.println("3.Uptade student Information");
+	System.out.println("4.Delete Student Information");
+	System.out.println("5.Show Gpa");
+	System.out.println("6.Show the Average Gpa");
+	System.out.println("7.Exit");
+	
+    int select = input.nextInt();
+    //input for which case you want to choose
+    switch(select){
+    	case 1:
+    	    ShowStudent();
+    	    break;
+    	case 2:
+    		ShowAllStudent();
+    		break;
+    	case 3:
+    		Uptade();
+    		break;
+    	case 4:
+    		Delete();
+    		break;
+    	case 5:
+    		ShowGpa();
+    		break;
+    	case 6:
+    		AverageGpa();
+    		break;
+    	case 7:
+    		System.out.println("exit succesfull");
+    		break;
+    
+    }
+	
+	
+	}
+    //calculating all students gpa and sorted them with two different sort algorithm
+    private static void AverageGpa() {
+
+		 double a[] = {60.2 , 69.0 , 74.0 , 69.4 , 54.6 , 78.6};
+	       
+		 //selection sort algorithm for sorting
+		
+		    System.out.println("list sorted with selection sort:");
+		    int i,j;
+
+	        i = 0;
+	        while (i<a.length)
+	        {
+
+	            //finding the smallest number in the array
+	            int index_of_smallest = i;
+	            for(j=i; j<a.length; j++)
+	            {
+	                if (a[j]<a[index_of_smallest])
+	                    index_of_smallest = j;
+	            }
+
+	            //swapping
+	            double temp = a[i];
+	            a[i] = a[index_of_smallest];
+	            a[index_of_smallest] = temp;
+
+	            i++;
+	        }
+
+	        for(double x : a)
+	        {
+	            System.out.println(x);
+	        } 
+	      
+		 /*
+		 //insertion sort algorithm for sorting
+		 System.out.println("list sorted with insertion sort:");
+		 for(int i=0;i<a.length;i++)
+	        {
+	            int j = i;
+
+	            //i is not the first element
+	            while(j>0)
+	            {
+	                //not in order
+	                if(a[j-1] > a[j])
+	                {
+	                    //swapping
+	                    double temp = a[j-1];
+	                    a[j-1] = a[j];
+	                    a[j] = temp;
+	                }
+	                //in order
+	                else
+	                {
+	                    break;
+	                }
+	                j--;
+	            }
+	        }
+
+	        for(double x : a)
+	        {
+	            System.out.println(x);
+	        }
+	        
+	        */
+	        
+	     //for loop for calculating average gpa of this class  
+	    double real=0;
+	    //
+		for (int l=0;l<6;l++) {
+			real=gpa[l]+real;
+			}
+		double average = real/6;
+       System.out.println("average gpa of class = " +average);
+
+		}	
+
+	
+    private static void ShowGpa() {
+		
+		System.out.println("meltem kara : 803");
+	    System.out.println("mert soytürk : 804");
+		System.out.println("yaren çakýr : 805 ");
+		System.out.println("nergis konar : 806 ");
+	    System.out.println("hasan kaya : 807 ");
+		System.out.println("zehra ateþsönmez : 808");
+		//taking input for student we want to learn his/her gpa
+		System.out.println("enter id of student:");
+		Scanner input = new Scanner(System.in);
+		int id = input.nextInt();
+		
+		if(id == 803) {
+			System.out.println( getGpa(21.0,89.0,44.0,65.0,82.0)+ " gpa");
+        }
+		else if(id == 804) {
+			System.out.println(getGpa(34.0,74.0,56.0,88.0,93.0)+ " gpa");
+		}
+		else if(id == 805) {
+		    System.out.println(getGpa(70.0,65.0,80.0,90.0,65.0)+ " gpa");
+		}
+		else if(id == 806) {
+			System.out.println(getGpa(84.0,46.0,97.0,65.0,55.0)+ " gpa");
+		}
+		else if(id == 807) {
+			System.out.println(getGpa(7.0,65.0,89.0,45.0,67.0)+ " gpa");
+		}
+		else if(id == 808) {
+			System.out.println(getGpa(95.0,85.0,70.0,65.0,78.0)+ " gpa");
+		}
+		
+	}
+
+    private static void Delete() {
+		}
+
+	private static void Uptade() {
+		
+}
+	
+	private static void ShowAllStudent() throws IOException {
+     // reading data from StuSystem file until it ends
+		File dosya=new File("C:\\Users\\ACER NOTEBOOK\\Desktop\\StuSystem.txt");
+		BufferedReader reader=null;
+		reader= new BufferedReader(new FileReader(dosya));
+		String readit=reader.readLine();
+		//reading file to the end
+		while(readit!=null){
+			System.out.println(readit);
+			readit=reader.readLine();
+			}
+		}
+	
+	private static void ShowStudent() {
+        
+		int stunumber;
+        
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter student id:");
+		stunumber = input.nextInt();
+		
+		if(stunumber == 803) {
+			System.out.println(name[0] +" "+ surname[0]);
+		}
+		else if(stunumber == 804) {
+			System.out.println(name[1] +" "+ surname[1]);	
+		}
+		else if(stunumber == 805) {
+			System.out.println(name[2] +" "+ surname[2]);
+		}
+		else if(stunumber == 806) {
+			System.out.println(name[3] +" "+ surname[3]);
+		}
+		else if(stunumber == 807) {
+			System.out.println(name[4] +" "+ surname[4]);
+		}
+		else if(stunumber == 808) {
+			System.out.println(name[5] +" "+ surname[5]);
+		}
+	}
+}
+
